@@ -11,11 +11,16 @@ public class Cuentas{
         saldo = 0;
     }
 
+
     public void mostrarSaldo() {
         System.out.println("Su saldo actual es: " + saldo);
     }
 
-    public void depositarValor(int cantidadADepositar) {
+    public void depositarValor() {
+        int cantidadADepositar;
+        Scanner in = new Scanner(System.in);
+        System.out.println("Ingrese una cantidad a depositar: ");
+        cantidadADepositar = in.nextInt();
         saldo += cantidadADepositar;
         System.out.println("Su deposito es es de: " + cantidadADepositar);
         System.out.println("Su saldo actual es: " + saldo);
