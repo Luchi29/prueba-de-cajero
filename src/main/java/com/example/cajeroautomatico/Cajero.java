@@ -18,6 +18,8 @@ public class Cajero {
         seleccionarOperacion();
     }
 
+
+
     public void elegirCuenta(){
         Scanner in = new Scanner(System.in);
         int opcion;
@@ -59,7 +61,7 @@ public class Cajero {
                 break;
             }
             case 2: {
-              //  tipoCuenta.depositarValor();
+                tipoCuenta.depositarValor();
                 break;
             }
             case 3: {

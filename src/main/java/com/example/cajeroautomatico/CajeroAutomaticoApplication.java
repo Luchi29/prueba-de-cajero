@@ -9,7 +9,9 @@ public class CajeroAutomaticoApplication {
     public static void main(String[] args) {
         SpringApplication.run(CajeroAutomaticoApplication.class, args);
         User usuario = new User("noelia", "1234" );
-        Cajero cajero = new Cajero(usuario) ;
+        usuario.iniciarSesion();
+        Cajero cajero = new Cajero(usuario);
+
     }
 
 }
