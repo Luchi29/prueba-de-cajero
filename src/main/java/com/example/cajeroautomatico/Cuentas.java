@@ -3,20 +3,25 @@ package com.example.cajeroautomatico;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Cuentas{
+public abstract class Cuentas{
         Integer saldo;
-        User user;
+        ArrayList<Integer> opciones;
 
     public Cuentas(){
+        opciones = new ArrayList<>();
         saldo = 0;
+        opciones.add(5000);
+        opciones.add(10000);
+        opciones.add(20000);
+        opciones.add(50000);
+        opciones.add(100000);
     }
-
 
     public void mostrarSaldo() {
         System.out.println("Su saldo actual es: " + saldo);
     }
 
-    public void depositarValor() {
+    public void depositarValor(TiposDeMoneda tipo){
         int cantidadADepositar;
         Scanner in = new Scanner(System.in);
         System.out.println("Ingrese una cantidad a depositar: ");
@@ -26,28 +31,15 @@ public class Cuentas{
         System.out.println("Su saldo actual es: " + saldo);
     }
 
-    public void extraerDinero() {
-        Scanner in = new Scanner(System.in);
-        ArrayList<Integer> opciones = new ArrayList<>();
-        opciones.add(5000);
-        opciones.add(10000);
-        opciones.add(20000);
-        opciones.add(50000);
-        opciones.add(100000);
-        int opcionElegida;
-        mostrarOpciones(opciones);
-        opcionElegida = in.nextInt();
+    public abstract void extraerDinero();
 
-        saldo -= opciones.get(opcionElegida);
-        System.out.println("Su saldo actual es: " + saldo);
-    }
+    public abstract String getInfo();
 
     public void mostrarOpciones(ArrayList<Integer> opciones) {
 
-
         System.out.println("Seleccione un monto a extraer:");
         for(int i = 0; i < opciones.size(); i++) {
-            System.out.println("Opcion: " + i + ": " + opciones.get(i));
+            System.out.println("Opcion: " + (i+1) + ": " + opciones.get(i));
 
         }
 

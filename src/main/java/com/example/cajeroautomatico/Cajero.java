@@ -14,39 +14,25 @@ public class Cajero {
         opciones.add("Extraer");
 
         this.usuarioActual = user;
+
         elegirCuenta();
         seleccionarOperacion();
     }
 
-
-
     public void elegirCuenta(){
         Scanner in = new Scanner(System.in);
         int opcion;
-        System.out.println("Ingrese una opcion: ");
-        System.out.println("1. Caja de Ahorro en pesos");
-        System.out.println("2. Caja de Ahorro en dolares");
-        System.out.println("3. Cuenta corriente");
+        ArrayList<Cuentas> cuentas = usuarioActual.getCuentas();
+
+        for (int i = 0; i < cuentas.size(); i++) {
+            System.out.println((i+1) + ". " +  cuentas.get(i).getInfo());
+        }
 
         opcion = in.nextInt();
 
-        switch (opcion){
-            case 1: {
-                tipoCuenta = new CajaAhorroPesos();
-                System.out.println("Caja de ahorro en pesos selecionada");
-                break;
-            }
-            case 2: {
-                tipoCuenta = new CajaAhorroDolares();
-                System.out.println("Caja de ahorro en dolares seleccionada");
-                break;
-            }
-            case 3: {
-                tipoCuenta = new CuentaCorriente();
-                System.out.println("Cuenta corriente seleccionada");
-                break;
-            }
-        }
+        //TODO: comprobar si es opcion valida
+        tipoCuenta = cuentas.get(opcion);
+        System.out.println(cuentas.get(opcion).getInfo() + " selecionada" );
     }
 
     public void seleccionarOperacion(){
@@ -54,18 +40,22 @@ public class Cajero {
         int opcionElegida;
         mostrarOpciones();
         opcionElegida = in.nextInt();
-
         switch (opcionElegida){
             case 1: {
                tipoCuenta.mostrarSaldo();
                 break;
             }
             case 2: {
-                tipoCuenta.depositarValor();
+                System.out.println("Seleccione tipo de moneda");
+                tipoCuenta.depositarValor(seleccionarMoneda());
                 break;
             }
             case 3: {
                 tipoCuenta.extraerDinero();
+                break;
+            }
+            case 4: {
+                tipoCuenta.getInfo();
                 break;
             }
         }
@@ -75,10 +65,30 @@ public class Cajero {
         System.out.println("Seleccione una operacion a realizar");
         for(int i = 0; i < opciones.size(); i++) {
             System.out.println("Opcion " + (i+1) + ": " + opciones.get(i));
-
         }
+    }
 
+    public TiposDeMoneda seleccionarMoneda(){
+        TiposDeMoneda tipo;
+        Scanner in = new Scanner(System.in);
+        int opcionElegida;
 
+        System.out.println("1. PESOS");
+        System.out.println("2. DOLARES");
+
+        opcionElegida = in.nextInt();
+
+        switch (opcionElegida){
+            case 1:
+                tipo = TiposDeMoneda.PESOS;
+                break;
+            case 2:
+                tipo = TiposDeMoneda.DOLARES;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + opcionElegida);
+        }
+        return tipo;
     }
 }
 
