@@ -1,5 +1,5 @@
 package com.example.cajeroautomatico;
 
-public enum TiposDeMoneda {
+public enum TipoDeMoneda {
     PESOS, DOLARES
 }

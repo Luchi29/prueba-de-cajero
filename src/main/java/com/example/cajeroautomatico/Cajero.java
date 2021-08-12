@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Cajero {
     ArrayList<String> opciones = new ArrayList<>();
     User usuarioActual;
-    Cuentas tipoCuenta;
+    Cuenta tipoCuenta;
 
     public Cajero(User user) {
         opciones.add("Ver saldo");
@@ -22,7 +22,7 @@ public class Cajero {
     public void elegirCuenta(){
         Scanner in = new Scanner(System.in);
         int opcion;
-        ArrayList<Cuentas> cuentas = usuarioActual.getCuentas();
+        ArrayList<Cuenta> cuentas = usuarioActual.getCuentas();
 
         for (int i = 0; i < cuentas.size(); i++) {
             System.out.println((i+1) + ". " +  cuentas.get(i).getInfo());
@@ -68,8 +68,8 @@ public class Cajero {
         }
     }
 
-    public TiposDeMoneda seleccionarMoneda(){
-        TiposDeMoneda tipo;
+    public TipoDeMoneda seleccionarMoneda(){
+        TipoDeMoneda tipo;
         Scanner in = new Scanner(System.in);
         int opcionElegida;
 
@@ -80,10 +80,10 @@ public class Cajero {
 
         switch (opcionElegida){
             case 1:
-                tipo = TiposDeMoneda.PESOS;
+                tipo = TipoDeMoneda.PESOS;
                 break;
             case 2:
-                tipo = TiposDeMoneda.DOLARES;
+                tipo = TipoDeMoneda.DOLARES;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + opcionElegida);

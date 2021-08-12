@@ -1,3 +1,5 @@
+# Compiled class file
+*.class
 # Default ignored files
 /shelf/
 /.idea/workspace.xml
@@ -6,3 +8,4 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/target/

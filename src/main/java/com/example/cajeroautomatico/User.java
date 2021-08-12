@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class User {
    private String nombreUsuario;
    private String contraseña;
-   private ArrayList<Cuentas> cuentas;
+   private ArrayList<Cuenta> cuentas;
 
     public User(String nombreUsuario, String contraseña) {
         this.nombreUsuario = nombreUsuario;
@@ -15,12 +15,12 @@ public class User {
         cuentas = new ArrayList<>();
     }
 
-    public void agregarCuentas(Cuentas cuenta){
+    public void agregarCuentas(Cuenta cuenta){
         //TODO: hacer alguna compobacion
         cuentas.add(cuenta);
     }
 
-    public ArrayList<Cuentas> getCuentas(){
+    public ArrayList<Cuenta> getCuentas(){
         return cuentas;
     }
 

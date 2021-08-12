@@ -2,13 +2,13 @@ package com.example.cajeroautomatico;
 
 import java.util.Scanner;
 
-public class CuentaCorriente extends Cuentas {
+public class CuentaCorriente extends Cuenta {
     public CuentaCorriente() {
 
     }
 
-        public void depositarValor(TiposDeMoneda tipo) {
-            if(!tipo.equals(TiposDeMoneda.PESOS)){
+        public void depositarValor(TipoDeMoneda tipo) {
+            if(!tipo.equals(TipoDeMoneda.PESOS)){
                 System.out.println("Tipo de moneda incorrecto");
                 return;
             }

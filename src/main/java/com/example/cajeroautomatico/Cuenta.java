@@ -3,11 +3,11 @@ package com.example.cajeroautomatico;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Cuentas{
+public abstract class Cuenta {
         Integer saldo;
         ArrayList<Integer> opciones;
 
-    public Cuentas(){
+    public Cuenta(){
         opciones = new ArrayList<>();
         saldo = 0;
         opciones.add(5000);
@@ -21,7 +21,7 @@ public abstract class Cuentas{
         System.out.println("Su saldo actual es: " + saldo);
     }
 
-    public void depositarValor(TiposDeMoneda tipo){
+    public void depositarValor(TipoDeMoneda tipo){
         int cantidadADepositar;
         Scanner in = new Scanner(System.in);
         System.out.println("Ingrese una cantidad a depositar: ");

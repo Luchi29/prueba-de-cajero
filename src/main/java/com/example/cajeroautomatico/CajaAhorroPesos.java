@@ -2,15 +2,15 @@ package com.example.cajeroautomatico;
 
 import java.util.Scanner;
 
-public class CajaAhorroPesos extends Cuentas {
+public class CajaAhorroPesos extends Cuenta {
 
     public CajaAhorroPesos() {
 
     }
 
     @Override
-    public void depositarValor(TiposDeMoneda tipo) {
-        if(!tipo.equals(TiposDeMoneda.PESOS)){
+    public void depositarValor(TipoDeMoneda tipo) {
+        if(!tipo.equals(TipoDeMoneda.PESOS)){
             System.out.println("Tipo de moneda incorrecto");
             return;
         }

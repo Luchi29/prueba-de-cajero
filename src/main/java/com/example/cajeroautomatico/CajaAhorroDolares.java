@@ -2,16 +2,16 @@ package com.example.cajeroautomatico;
 
 import java.util.Scanner;
 
-public class CajaAhorroDolares extends Cuentas {
+public class CajaAhorroDolares extends Cuenta {
 
     public CajaAhorroDolares() {
 
     }
 
     @Override
-    public void depositarValor(TiposDeMoneda tipo) {
+    public void depositarValor(TipoDeMoneda tipo) {
         //TODO: Refactor
-        if(!tipo.equals(TiposDeMoneda.DOLARES)){
+        if(!tipo.equals(TipoDeMoneda.DOLARES)){
             System.out.println("Tipo de moneda incorrecto");
             return;
         }
