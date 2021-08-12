@@ -1,11 +1,9 @@
 package com.example.cajeroautomatico;
 
-import java.util.Scanner;
-
 public class CajaAhorroPesos extends Cuenta {
 
     public CajaAhorroPesos() {
-
+        this.saldoMinimo = 0;
     }
 
     @Override
@@ -15,21 +13,6 @@ public class CajaAhorroPesos extends Cuenta {
             return;
         }
         super.depositarValor(tipo);
-    }
-
-    @Override
-    public void extraerDinero() {
-        Scanner in = new Scanner(System.in);
-        int opcionElegida;
-        mostrarOpciones(this.opciones);
-        opcionElegida = in.nextInt();
-        if(saldo > opciones.get(opcionElegida)){
-            saldo -= opciones.get(opcionElegida);
-        }else {
-            System.out.println("Saldo insuficiente");
-        }
-
-        System.out.println("Su saldo actual es: " + saldo);
     }
 
     @Override
