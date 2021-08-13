@@ -1,29 +1,17 @@
 package com.example.cajeroautomatico;
 
-import java.util.Scanner;
+public class CuentaCorriente extends Cuenta {
 
-public class CuentaCorriente extends Cuentas {
     public CuentaCorriente() {
-
+        this.saldoMinimo = -100000;
     }
-
-        public void depositarValor(TiposDeMoneda tipo) {
-            if(!tipo.equals(TiposDeMoneda.PESOS)){
-                System.out.println("Tipo de moneda incorrecto");
-                return;
-            }
-            super.depositarValor(tipo);
+    public void depositarValor(TipoDeMoneda tipo) {
+        if(!tipo.equals(TipoDeMoneda.PESOS)){
+            System.out.println("Tipo de moneda incorrecto");
+            return;
         }
-
-    //No checkea si queda saldo negativo
-    public void extraerDinero() {
-        Scanner in = new Scanner(System.in);
-        int opcionElegida;
-        mostrarOpciones(this.opciones);
-        opcionElegida = in.nextInt();
-        saldo -= opciones.get(opcionElegida);
-        System.out.println("Su saldo actual es: " + saldo);
-        }
+        super.depositarValor(tipo);
+    }
 
     @Override
     public String getInfo() {
