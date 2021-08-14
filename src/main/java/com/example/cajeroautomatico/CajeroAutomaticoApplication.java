@@ -18,7 +18,7 @@ public class CajeroAutomaticoApplication {
         usuario.agregarCuentas(cuenta3);
 
         usuario.iniciarSesion();
-        Cajero cajero = new Cajero(usuario);
+        new Cajero(usuario);
 
     }
 
