@@ -1,6 +1,7 @@
 package com.example.cajeroautomatico;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Cajero {
@@ -16,16 +17,15 @@ public class Cajero {
         this.usuarioActual = user;
 
         elegirCuenta();
-        seleccionarOperacion();
     }
 
     public void elegirCuenta(){
         Scanner in = new Scanner(System.in);
         int opcion;
-        ArrayList<Cuenta> cuentas = usuarioActual.getCuentas();
-
+        List<Cuenta> cuentas = usuarioActual.getCuentas();
+        System.out.println("Seleccione una opcion para continuar:");
         for (int i = 0; i < cuentas.size(); i++) {
-            System.out.println((i+1) + ". " +  cuentas.get(i).getInfo());
+            System.out.println(i+ ". " +  cuentas.get(i).getInfo());
         }
 
         opcion = in.nextInt();
@@ -33,6 +33,8 @@ public class Cajero {
         //TODO: comprobar si es opcion valida
         tipoCuenta = cuentas.get(opcion);
         System.out.println(cuentas.get(opcion).getInfo() + " selecionada" );
+        seleccionarOperacion();
+
     }
 
     public void seleccionarOperacion(){
@@ -54,11 +56,12 @@ public class Cajero {
                 tipoCuenta.extraerDinero();
                 break;
             }
-            case 4: {
-                tipoCuenta.getInfo();
-                break;
+            default: {
+                System.out.println("Ingrese una opcion valida");
+                seleccionarOperacion();
             }
         }
+        realizarOtraOperacion();
     }
 
     public void mostrarOpciones() {
@@ -89,6 +92,31 @@ public class Cajero {
                 throw new IllegalStateException("Unexpected value: " + opcionElegida);
         }
         return tipo;
+    }
+
+    public void realizarOtraOperacion(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("¿Desea realizar otra operacion?");
+        System.out.println("1. Sí");
+        System.out.println("2. No");
+
+        switch (sc.nextInt()){
+            case 1: {
+                elegirCuenta();
+                break;
+            }
+            case 2: {
+                System.out.println("Adios! :)");
+                break;
+            }
+            default: {
+                System.out.println("Ingrese una opcion valida");
+                realizarOtraOperacion();
+            }
+        }
+
+
     }
 }
 

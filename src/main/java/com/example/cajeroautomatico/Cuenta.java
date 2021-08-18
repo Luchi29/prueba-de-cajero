@@ -9,7 +9,7 @@ public abstract class Cuenta {
         Integer saldoMinimo;
         ArrayList<Integer> opciones;
 
-    public Cuenta(){
+        protected Cuenta(){
         opciones = new ArrayList<>();
         saldoActual = 0;
         opciones.addAll(Arrays.asList(5000, 10000, 20000, 50000, 10000));
